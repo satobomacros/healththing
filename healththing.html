@@ -1,0 +1,136 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Life Counter</title>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1, IE=9">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="robots" content="noindex,nofollow" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-title" content="Life Counter">
+	<meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	<!-- non-retina iPhone pre iOS 7 -->
+	<link rel="apple-touch-icon" sizes="57x57" href="icons/app_icon_57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="icons/app_icon_60x60.png">
+	<!-- non-retina iPad pre iOS 7 -->
+	<link rel="apple-touch-icon" sizes="72x72" href="icons/app_icon_72x72.png">
+	<!-- non-retina iPad iOS 7 -->
+	<link rel="apple-touch-icon" sizes="76x76" href="icons/app_icon_76x76.png">
+	<!-- retina iPhone pre iOS 7 -->
+	<link rel="apple-touch-icon" sizes="114x114" href="icons/app_icon_114x114.png">
+	<!-- retina iPhone iOS 7 -->
+	<link rel="apple-touch-icon" sizes="120x120" href="icons/app_icon_120x120.png">
+	<!-- retina iPad pre iOS 7 -->
+	<link rel="apple-touch-icon" sizes="144x144" href="icons/app_icon_144x144.png">
+	<!-- retina iPad iOS 7 -->
+	<link rel="apple-touch-icon" sizes="152x152" href="icons/app_icon_152x152.png">
+	<link rel="apple-touch-icon" sizes="256x256" href="icons/app_icon_256x256.png">
+	<link rel="apple-touch-icon" sizes="512x512" href="icons/app_icon_512x512.png">
+	<link rel="apple-touch-icon" sizes="1024x1024" href="icons/app_icon_1024x1024.png">
+  <script src="https://dl.dropboxusercontent.com/u/126206/processing/processing-1.4.1.min.js"></script>
+</head>
+<body bgcolor="#303030">
+<style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<script type="application/processing">
+int playerA=20;
+int playerB=20;
+int settei=0;
+float x=0;
+float y=0;
+float dragsize=height/3;
+String damages="ここにダメージが出ます";
+int Asaikoro;
+int Bsaikoro;
+int Abefore;
+int Bbefore;
+int Adamage;
+int Bdamage;
+int Adamages;
+int Bdamages;
+int value;
+int dragy;
+void setup() {
+  size(375, 667);
+  text(random(20),width/8,height-20);
+}
+void draw() {
+  background(100);
+  fill(255, 255, 255);
+  rect(0, 0, width/4, height);
+  rect(width/4*3, 0, width/4, height);
+  fill(255-playerA*10, 0+playerA*10, 0, 160);
+  text(Math.floor(playerA), width/8, height/2);
+  fill(255-playerB*10, 0+playerB*10, 0, 160);
+  text(Math.floor(playerB), width-width/8, height/2);
+  fill(255,0,255);
+  rect(width/4,height-height/7,width/2,height/7);
+  fill(0);
+  textAlign(CENTER);
+  text(damages,width/2-10,height/2);
+  if(Asaikoro<Bsaikoro){
+    textAlign(CENTER);
+  text("A+"+Asaikoro+" B+"+Bsaikoro+"により",width/2-10,height-40);
+      textAlign(CENTER);
+  text("Aが最初です",width/2-10,height-20);
+  }
+  if(Bsaikoro<Asaikoro){
+      text("A+"+Asaikoro+" B+"+Bsaikoro+"により",width/2-10,height-40);
+  text("Bが最初です",width/2-10,height-20);
+  }
+}
+void mouseDragged() {
+  value=value+1;
+  Adamages= playerA-Abefore;
+  Bdamages= playerB-Bbefore;
+  if(width/4*3<mouseX){
+  playerB=Bbefore+mouseY/20-dragy/20;
+  damages="PlayerB"+Math.floor(Bdamages);
+  Abefore=playerA;
+  }
+  if(width/4*1>mouseX){
+  playerA=Abefore+mouseY/20-dragy/20;  
+  damages="PlayerA"+Math.floor(Adamages);
+  Bbefore=playerB;
+  }
+  if (value > 5) {
+    value=0;
+  }
+}
+void mouseWheel(MouseEvent event) {
+  int e = event.getCount();
+  Adamages= playerA-Abefore-1;
+  Bdamages= playerB-Bbefore-1;
+  if(width/4*3<mouseX){
+  playerB=playerB+e;
+  damages="PlayerB"+int(Bdamages);
+  Abefore=playerA;
+  }
+  if(width/4*1>mouseX){
+  playerA=playerA+e;
+  damages="PlayerA"+int(Adamages);
+  Bbefore=playerB;
+}
+}
+void mousePressed(){
+  dragy=mouseY;
+  Abefore=playerA;
+  Bbefore=playerB;
+  damages="";
+  if((width/4<mouseX)&&(mouseX<width/4*3)&&(mouseY>height-height/7)){
+Asaikoro=int(random(1,21));
+Bsaikoro=int(random(1,21));
+  }
+}
+
+</script>
+<canvas width="375" height="667"></canvas>
+</body>
+</html>
