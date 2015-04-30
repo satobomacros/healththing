@@ -1,4 +1,4 @@
-
+ï»¿
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -47,7 +47,7 @@ float x=0;
 float y=0;
 float dragsize=height/3;
 int fontsize=20;
-String damages="‚±‚±‚Éƒ_ƒ[ƒW‚ªo‚Ü‚·";
+String damages="damages display in this";
 int Asaikoro;
 int Bsaikoro;
 int Abefore;
@@ -81,13 +81,13 @@ void draw() {
   text(damages,width/2-10,height/2);
   if(Asaikoro<Bsaikoro){
     textAlign(CENTER);
-  text("A+"+Asaikoro+" B+"+Bsaikoro+"‚É‚æ‚è",width/2-10,height-fontsize*2);
+  text("A+"+Asaikoro+" B+"+Bsaikoro+" so",width/2-10,height-fontsize*2);
       textAlign(CENTER);
-  text("A‚ªÅ‰‚Å‚·",width/2-10,height-fontsize);
+  text("A won",width/2-10,height-fontsize);
   }
   if(Bsaikoro<Asaikoro){
-      text("A+"+Asaikoro+" B+"+Bsaikoro+"‚É‚æ‚è",width/2-10,height-fontsize*2);
-  text("B‚ªÅ‰‚Å‚·",width/2-10,height-fontsize);
+      text("A+"+Asaikoro+" B+"+Bsaikoro+" so",width/2-10,height-fontsize*2);
+  text("B won",width/2-10,height-fontsize);
   }
 }
 void mouseDragged() {
