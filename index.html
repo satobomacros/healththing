@@ -46,6 +46,7 @@ int settei=0;
 float x=0;
 float y=0;
 float dragsize=height/3;
+int fontsize=20;
 String damages="ここにダメージが出ます";
 int Asaikoro;
 int Bsaikoro;
@@ -63,6 +64,7 @@ void setup() {
 }
 void draw() {
   background(100);
+  textSize(fontsize); 
   fill(255, 255, 255);
   rect(0, 0, width/4, height);
   rect(width/4*3, 0, width/4, height);
@@ -72,18 +74,20 @@ void draw() {
   text(Math.floor(playerB), width-width/8, height/2);
   fill(255,0,255);
   rect(width/4,height-height/7,width/2,height/7);
+  rect(width/4,0,width/2,height/7);
+  line(width/2,0,width/2,height/7);
   fill(0);
   textAlign(CENTER);
   text(damages,width/2-10,height/2);
   if(Asaikoro<Bsaikoro){
     textAlign(CENTER);
-  text("A+"+Asaikoro+" B+"+Bsaikoro+"により",width/2-10,height-40);
+  text("A+"+Asaikoro+" B+"+Bsaikoro+"により",width/2-10,height-fontsize*2);
       textAlign(CENTER);
-  text("Aが最初です",width/2-10,height-20);
+  text("Aが最初です",width/2-10,height-fontsize);
   }
   if(Bsaikoro<Asaikoro){
-      text("A+"+Asaikoro+" B+"+Bsaikoro+"により",width/2-10,height-40);
-  text("Bが最初です",width/2-10,height-20);
+      text("A+"+Asaikoro+" B+"+Bsaikoro+"により",width/2-10,height-fontsize*2);
+  text("Bが最初です",width/2-10,height-fontsize);
   }
 }
 void mouseDragged() {
@@ -92,12 +96,12 @@ void mouseDragged() {
   Bdamages= playerB-Bbefore;
   if(width/4*3<mouseX){
   playerB=Bbefore+mouseY/20-dragy/20;
-  damages="PlayerB"+Math.floor(Bdamages);
+  damages="PlayerB"+Math.ceil(Bdamages);
   Abefore=playerA;
   }
   if(width/4*1>mouseX){
   playerA=Abefore+mouseY/20-dragy/20;  
-  damages="PlayerA"+Math.floor(Adamages);
+  damages="PlayerA"+Math.ceil(Adamages);
   Bbefore=playerB;
   }
   if (value > 5) {
@@ -124,6 +128,12 @@ void mousePressed(){
   Abefore=playerA;
   Bbefore=playerB;
   damages="";
+  if((width/4<mouseX)&&(mouseX<width/2)&&(mouseY<height/7)){
+  fontsize=fontsize+2;
+  }
+  if((width/2<mouseX)&&(mouseX<width/4*3)&&(mouseY<height/7)){
+  fontsize=fontsize-2;
+  }
   if((width/4<mouseX)&&(mouseX<width/4*3)&&(mouseY>height-height/7)){
 Asaikoro=int(random(1,21));
 Bsaikoro=int(random(1,21));
