@@ -118,8 +118,8 @@ void mouseDragged() {
 }
 void mouseWheel(MouseEvent event) {
   int e = event.getCount();
-  Adamages= playerA-Abefore-1;
-  Bdamages= playerB-Bbefore-1;
+  Adamages=Math.ceil(playerA-Abefore)-1;
+  Bdamages=Math.ceil(playerB-Bbefore)-1;
   if(width/4*3<mouseX){
   playerB=playerB+e;
   damages="PlayerB"+int(Bdamages);
