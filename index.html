@@ -79,13 +79,13 @@ void draw() {
   fill(0);
   textAlign(CENTER);
   text(damages,width/2-10,height/2);
-  if(Asaikoro<Bsaikoro){
+  if(Asaikoro>Bsaikoro){
     textAlign(CENTER);
   text("A+"+Asaikoro+" B+"+Bsaikoro+" so",width/2-10,height-fontsize*2);
       textAlign(CENTER);
   text("A won",width/2-10,height-fontsize);
   }
-  if(Bsaikoro<Asaikoro){
+  if(Bsaikoro>Asaikoro){
       text("A+"+Asaikoro+" B+"+Bsaikoro+" so",width/2-10,height-fontsize*2);
   text("B won",width/2-10,height-fontsize);
   }
