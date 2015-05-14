@@ -105,7 +105,7 @@ void mouseDragged() {
   }
   if(width/4*1>mouseX){
   playerA=Abefore+mouseY/20-dragy/20;  
-  if((Adamages<-1)||(Adamages>1)){
+  if((Adamages=<-2)||(Adamages=>2)){
     damages="PlayerA"+Math.ceil(Adamages)+"damages";
 	}else{
 	  damages="PlayerA"+Math.ceil(Adamages)+"damage";
