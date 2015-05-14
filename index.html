@@ -96,12 +96,20 @@ void mouseDragged() {
   Bdamages= playerB-Bbefore;
   if(width/4*3<mouseX){
   playerB=Bbefore+mouseY/20-dragy/20;
-  damages="PlayerB"-Math.ceil(Bdamages)+"damage";
+  if(Bdamages<1){
+    damages="PlayerB"+Math.ceil(Bdamages)+"damage";
+	}else{
+	  damages="PlayerB"+Math.ceil(Bdamages)+"damages";
+	  }
   Abefore=playerA;
   }
   if(width/4*1>mouseX){
   playerA=Abefore+mouseY/20-dragy/20;  
-  damages="PlayerA"-Math.ceil(Adamages)+"damage";
+  if(Adamages<1){
+    damages="PlayerA"+Math.ceil(Adamages)+"damage";
+	}else{
+	  damages="PlayerA"+Math.ceil(Adamages)+"damages";
+	  }
   Bbefore=playerB;
   }
   if (value > 5) {
