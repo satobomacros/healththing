@@ -59,6 +59,8 @@ int Bdamages;
 int value;
 int dragy;
 int beforerect=0;
+int colorrush=0;
+int colorrushpoint=0;
 void setup() {
   size(375, 667);
   text(random(20),width/8,height-20);
@@ -81,7 +83,21 @@ void draw() {
   textAlign(CENTER);
   text(damages,width/2-10,height/4*3);
   if(beforerect==1){
-    rect(mouseX-5,dragy-5,10,10);
+	println(colorrush);
+	if(colorrush>255){
+	colorrushpoint=1;
+    }
+	if(colorrush<1){
+	colorrushpoint=0;
+	}
+	if(colorrushpoint==0){
+	colorrush++;
+	}
+	if(colorrushpoint==1){
+	colorrush--;
+	}
+    fill(colorrush,colorrush/2,colorrush/4,200-colorrush/2);
+    rect(mouseX-fontsize/4,dragy-5,fontsize/2,fontsize/2);
 	}
   if(Asaikoro>Bsaikoro){
     textAlign(CENTER);
