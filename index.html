@@ -68,9 +68,8 @@ void setup() {
 void draw() {
   background(100);
   textSize(fontsize); 
-  Pfont font;
-  font = loadFont("Parisienne-Small.ttf");
-  textFont(font,fontsize);
+  PFont font = createFont("Meiryo", 32); // メイリオ, 32ptで生成
+  textFont(font, 32);
   fill(255, 255, 255);
   rect(0, 0, width/4, height);
   rect(width/4*3, 0, width/4, height);
