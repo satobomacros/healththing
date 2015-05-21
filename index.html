@@ -61,6 +61,10 @@ int dragy;
 int beforerect=0;
 int colorrush=0;
 int colorrushpoint=0;
+/* @pjs
+crisp=true;
+font=Parisienne-Small.ttf;
+*/
 void setup() {
   size(375, 667);
   text(random(20),width/8,height-20);
@@ -68,8 +72,8 @@ void setup() {
 void draw() {
   background(100);
   textSize(fontsize); 
-  PFont font = createFont("Meiryo", 32); // メイリオ, 32ptで生成
-  textFont(font, 32);
+  PFont font = createFont("Parisienne-Small.ttf", fontsize); // メイリオ, 32ptで生成
+  textFont(font, fontsize);
   fill(255, 255, 255);
   rect(0, 0, width/4, height);
   rect(width/4*3, 0, width/4, height);
