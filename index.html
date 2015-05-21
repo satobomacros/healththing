@@ -68,6 +68,9 @@ void setup() {
 void draw() {
   background(100);
   textSize(fontsize); 
+  Pfont font;
+  font = loadFont("Parisienne-Small.ttf");
+  textFont(font,fontsize);
   fill(255, 255, 255);
   rect(0, 0, width/4, height);
   rect(width/4*3, 0, width/4, height);
@@ -96,7 +99,9 @@ void draw() {
 	colorrush--;
 	}
     fill(colorrush,colorrush/2,colorrush/4,200-colorrush/2);
-    rect(mouseX-fontsize/4,dragy-5,fontsize/2,fontsize/2);
+    ellipse(mouseX+1,dragy+1,fontsize/2-1,fontsize/2-1);
+    fill(colorrush,colorrush/2,colorrush/4,200);
+    rect(mouseX-fontsize/4,dragy-fontsize/4,fontsize/2,fontsize/2);
 	}
   if(Asaikoro>Bsaikoro){
     textAlign(CENTER);
