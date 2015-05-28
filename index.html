@@ -128,7 +128,7 @@ void mouseDragged() {
 	}else{
 	  damages="PlayerB"+Math.ceil(Bdamages)+"point";
 	  }
-  Abefore=playerA;
+  Abefore=Math.ceil(playerA);
   }
   if(width/4*1>mouseX){
   playerA=Abefore+mouseY/20-dragy/20;  
@@ -137,7 +137,7 @@ void mouseDragged() {
 	}else{
 	  damages="PlayerA"+Math.ceil(Adamages)+"point";
 	  }
-  Bbefore=playerB;
+  Bbefore=Math.ceil(playerB);
   }
   if (value > 5) {
     value=0;
