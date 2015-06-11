@@ -33,6 +33,11 @@
   <script src="https://dl.dropboxusercontent.com/u/126206/processing/processing-1.4.1.min.js"></script>
 </head>
 <body bgcolor="#303030">
+<script src="./sound.js"></script>
+<audio id="sound-file" preload="auto">
+	<source src="./hello.mp3" type="audio/mp3">
+	<source src="./hello.wav" type="audio/wav">
+</audio>
 <style type="text/css">
     body {
         margin: 0;
@@ -118,6 +123,9 @@ void draw() {
   }
 }
 void mouseDragged() {
+
+  sound();
+  
   value=value+1;
   Adamages= playerA-Abefore;
   Bdamages= playerB-Bbefore;

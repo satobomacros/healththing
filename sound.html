@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="robots" content="noindex,nofollow">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>「音が鳴るボタン」のデモ</title>
+		<!-- sound.jsの読み込み -->
+		<script src="./sound.js"></script>
+	</head>
+<body>
+
+<h1>音が鳴るボタンのデモ</h1>
+<p>ボタンをクリックすると音声が流れます。ボタンを連打すると、再生途中でも強制的に最初に戻されて再生し直します。</p>
+<p style="text-align:right">(プログラムの配布元: <a href="http://syncer.jp/html5-javascript-hello-button">Syncer</a>)</p>
+
+<!-- テキストボタンの場合 -->
+<p><a onClick="sound();"><img src="./button.png" width="280" height="80" alt="クリックすると音が鳴ります。" title="クリックすると音が鳴ります。"/></a></p>
+ 
+<!-- 音声ファイルの読み込み 9〜10行目にURLを指定 -->
+<audio id="sound-file" preload="auto">
+	<source src="./hello.mp3" type="audio/mp3">
+	<source src="./hello.wav" type="audio/wav">
+</audio>
+
+</body>
+</html>
