@@ -124,12 +124,12 @@ void draw() {
 }
 void mouseDragged() {
 
-  sound();
   
   value=value+1;
   Adamages= playerA-Abefore;
   Bdamages= playerB-Bbefore;
   if(width/4*3<mouseX){
+    sound();
   playerB=Bbefore+mouseY/20-dragy/20;
   if((Bdamages<-2)||(Bdamages>1)){
     damages="PlayerB"+Math.ceil(Bdamages)+"points";
@@ -139,6 +139,7 @@ void mouseDragged() {
   Abefore=Math.ceil(playerA);
   }
   if(width/4*1>mouseX){
+    sound();
   playerA=Abefore+mouseY/20-dragy/20;  
   if((Adamages<-2)||(Adamages>1)){
     damages="PlayerA"+Math.ceil(Adamages)+"points";
